@@ -171,16 +171,74 @@ button[aria-label="Increment"] {
     cursor: pointer !important;
 }
 
-/* ── Input widgets ── */
-.stSelectbox > div > div,
-.stNumberInput > div > div > input {
+/* ── Input widgets — visible in BOTH light & dark mode ── */
+
+/* Selectbox container */
+section[data-testid="stSidebar"] div[data-baseweb="select"] > div,
+section[data-testid="stSidebar"] div[data-baseweb="select"] > div > div {
+    background-color: #2d2b6b !important;
+    border: 1.5px solid #5b52d6 !important;
     border-radius: 9px !important;
+    color: #e0e7ff !important;
     transition: box-shadow var(--transition), border-color var(--transition) !important;
 }
-.stSelectbox > div > div:focus-within,
-.stNumberInput > div > div:focus-within {
-    box-shadow: 0 0 0 3px rgba(108,99,255,.35) !important;
-    border-color: var(--accent) !important;
+/* Selectbox selected value + placeholder text */
+section[data-testid="stSidebar"] div[data-baseweb="select"] span,
+section[data-testid="stSidebar"] div[data-baseweb="select"] div[class*="placeholder"],
+section[data-testid="stSidebar"] div[data-baseweb="select"] input {
+    color: #e0e7ff !important;
+    -webkit-text-fill-color: #e0e7ff !important;
+}
+/* Dropdown arrow SVG */
+section[data-testid="stSidebar"] div[data-baseweb="select"] svg {
+    fill: #a5b4fc !important;
+    color: #a5b4fc !important;
+}
+/* Dropdown list popup */
+ul[data-testid="stSelectboxVirtualDropdown"],
+div[data-baseweb="popover"] ul {
+    background-color: #1e1b4b !important;
+    border: 1px solid #5b52d6 !important;
+}
+div[data-baseweb="popover"] li,
+div[data-baseweb="popover"] [role="option"] {
+    color: #e0e7ff !important;
+    background-color: #1e1b4b !important;
+}
+div[data-baseweb="popover"] [role="option"]:hover,
+div[data-baseweb="popover"] [aria-selected="true"] {
+    background-color: #4f46e5 !important;
+    color: #ffffff !important;
+}
+
+/* Number input box */
+section[data-testid="stSidebar"] .stNumberInput > div > div {
+    background-color: #2d2b6b !important;
+    border: 1.5px solid #5b52d6 !important;
+    border-radius: 9px !important;
+}
+section[data-testid="stSidebar"] .stNumberInput input {
+    background-color: #2d2b6b !important;
+    color: #e0e7ff !important;
+    -webkit-text-fill-color: #e0e7ff !important;
+    font-weight: 500 !important;
+}
+/* Number input +/- buttons */
+section[data-testid="stSidebar"] .stNumberInput button {
+    background-color: #3d3a8c !important;
+    color: #a5b4fc !important;
+    border: none !important;
+}
+section[data-testid="stSidebar"] .stNumberInput button:hover {
+    background-color: #4f46e5 !important;
+    color: #fff !important;
+}
+
+/* Focus glow */
+section[data-testid="stSidebar"] div[data-baseweb="select"] > div:focus-within,
+section[data-testid="stSidebar"] .stNumberInput > div > div:focus-within {
+    box-shadow: 0 0 0 3px rgba(108,99,255,.45) !important;
+    border-color: #818cf8 !important;
 }
 
 /* ── Predict button ── */
@@ -654,7 +712,7 @@ elif page == "👤 About":
             <span class="about-badge">🐍 Python</span>
             <span class="about-badge">⚡ XGBoost</span>
             <span class="about-badge">🚀 Streamlit</span>
-            <span class="about-badge">📈 PowerBi</span>
+            <span class="about-badge">📈 Plotly</span>
         </div>
         <div class="about-divider"></div>
         <div class="about-contact" style="display:flex; flex-direction:column; gap:12px; align-items:center; margin-top:16px;">
